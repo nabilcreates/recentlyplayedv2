@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700');
+
+$background: #1e272e;
+$text: whitesmoke;
+
+body{
+    margin: 0;
+    padding: 0;
+    
+    background-color: $background;
+    color: $text;
+    font-family: 'Roboto', sans-serif;
+
+    font-weight: 300;
+    
+    h1{
+        font-weight: 700;
+    }
+
+    #song{
+        padding: 15px;
+
+        a{
+            color: $text;
+            text-decoration: none;
+        }
+        
+    }
+    
+    #song:nth-of-type(2n){
+        background: rgba(0,0,0,0.1)
+    }
+}
