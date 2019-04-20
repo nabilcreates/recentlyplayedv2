@@ -12,10 +12,15 @@ class App extends React.Component{
 
     componentDidMount(){
 
-        // extract the token and then set the state
-        this.setState({
-            token: extractToken()
-        })
+        // If no tokem is found, function will return false
+        if(extractToken() == false){
+            window.location.replace('/auth.html')
+        }else{
+            // extract the token and then set the state
+            this.setState({
+                token: extractToken()
+            })
+        }
 
         // Set delay as the token will take approx 1ms to set
         setTimeout(() => {
