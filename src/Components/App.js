@@ -67,6 +67,7 @@ class App extends React.Component{
                         // this.getAlbumImage(d.track.album.id, this.state.token)
                         return(
                             <div id='song' >
+                                <h6>{new Date(d.played_at).toTimeString().split('GMT')[0]}</h6>
                                 <h1>
                                     <a href={`https://open.spotify.com/track/${d.track.id}`}>{d.track.name}</a>
                                 </h1>

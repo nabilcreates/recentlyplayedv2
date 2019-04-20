@@ -20,6 +20,14 @@ body{
     #song{
         padding: 15px;
 
+        h6{
+            font-size: 1em;
+            margin: 5px 0;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+
         a{
             color: $text;
             text-decoration: none;
