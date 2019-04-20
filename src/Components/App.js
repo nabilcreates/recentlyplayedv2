@@ -14,7 +14,7 @@ class App extends React.Component{
 
         // If no tokem is found, function will return false
         if(extractToken() == false){
-            window.location.replace('/auth.html')
+            window.location.replace('https://renabil.github.io/recentlyplayedv2/auth.html')
         }else{
             // extract the token and then set the state
             this.setState({
