@@ -57,12 +57,13 @@ class App extends React.Component{
     render(){
 
         return(
-            <div>
+            <div>   
 
                 <Header />
-                
+                             
                 {this.state.data != false
-                    ? this.state.data.map(d => {
+                    ?
+                    this.state.data.map(d => {
                         return(
                             <div id='song' >
                                 <h1>{d.track.name}</h1>
