@@ -12,15 +12,10 @@ class App extends React.Component{
 
     componentDidMount(){
 
-        // If no tokem is found, function will return false
-        if(extractToken() == false){
-            window.location.replace('https://renabil.github.io/recentlyplayedv2/auth.html')
-        }else{
-            // extract the token and then set the state
-            this.setState({
-                token: extractToken()
-            })
-        }
+        // extract the token and then set the state
+        this.setState({
+            token: extractToken()
+        })
 
         // Set delay as the token will take approx 1ms to set
         setTimeout(() => {
