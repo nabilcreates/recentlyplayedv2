@@ -17,6 +17,17 @@ body{
         font-weight: 700;
     }
 
+    #container{
+        padding: 15px;
+    }
+
+    #button{
+        background: darken($background, 10%);
+        padding: 5px 10px;
+        color: whitesmoke;
+        text-decoration: none;
+    }
+    
     #song{
         padding: 15px;
 
