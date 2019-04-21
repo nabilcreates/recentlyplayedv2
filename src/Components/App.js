@@ -1,5 +1,7 @@
 import React from 'react'
 import extractToken from '../extractToken.js'
+import Header from './Header.js'
+
 class App extends React.Component{
     
     constructor(){
@@ -56,16 +58,20 @@ class App extends React.Component{
 
         return(
             <div>
+
+                <Header />
+                
                 {this.state.data != false
                     ? this.state.data.map(d => {
                         return(
                             <div id='song' >
                                 <h1>{d.track.name}</h1>
-                                <p>{d.track.artists[0].name}</p>
+                                <p>By {d.track.artists[0].name}</p>
 
                                 <br></br>
                                 
                                 <a id='button' href={`https://open.spotify.com/track/${d.track.id}`}>Spotify</a>
+
                             </div>
                         )
                     })
@@ -74,6 +80,9 @@ class App extends React.Component{
                         <div id='container' >
                             <h1>Please authenticate yourself</h1>
                             <p>Login using your Spotify account:</p>
+
+                            <br></br>
+                            
                             <a id='button' href='https://renabil.github.io/recentlyplayedv2/auth.html' >Authenticate</a>
                         </div>
                     </div>}

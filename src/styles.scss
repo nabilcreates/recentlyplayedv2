@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700');
 
-$background: #1e272e;
+$background: #1A1A1D;
 $text: whitesmoke;
 
 body{
@@ -13,6 +13,11 @@ body{
 
     font-weight: 300;
     
+    .header{
+        text-align: center;
+        margin: 10px 0;
+    }
+    
     h1{
         font-weight: 700;
     }
@@ -22,13 +27,17 @@ body{
     }
 
     #button{
-        background: darken($background, 10%);
-        padding: 5px 10px;
+        font-size: 0.9em;
+        background: #C3083F;
+        margin: 0 5px 0 0;
+        padding: 10px 10px;
+        border-radius: 5px;
         color: whitesmoke;
         text-decoration: none;
     }
     
     #song{
+        margin: 10px 0;
         padding: 15px;
 
         h6{
@@ -47,6 +56,6 @@ body{
     }
     
     #song:nth-of-type(2n){
-        background: rgba(0,0,0,0.1)
+        background: darken($background, 2%)
     }
 }
