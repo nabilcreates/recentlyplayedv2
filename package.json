@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --watch --hot true",
+    "start": "webpack --watch --hot",
     "build": "webpack --mode production"
   },
   "keywords": [],

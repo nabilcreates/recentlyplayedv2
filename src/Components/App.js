@@ -62,12 +62,13 @@ class App extends React.Component{
 
         return(
             <div>
+
+                <a href={`whatsapp://send?text=${document.URL}`} data-action="share/whatsapp/share" target="_blank">וואטסאפ</a>
+
                 {this.state.data != false
                     ? this.state.data.map(d => {
-                        // this.getAlbumImage(d.track.album.id, this.state.token)
                         return(
                             <div id='song' >
-                                <h6>{new Date(d.played_at).toTimeString().split('GMT')[0]}</h6>
                                 <h1>
                                     <a href={`https://open.spotify.com/track/${d.track.id}`}>{d.track.name}</a>
                                 </h1>
