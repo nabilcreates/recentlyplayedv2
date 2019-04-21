@@ -36,26 +36,12 @@ body{
         text-decoration: none;
     }
     
-    #song{
-        margin: 10px 0;
-        padding: 15px;
-
-        h6{
-            font-size: 1em;
-            margin: 5px 0;
-            font-weight: 300;
-            text-transform: uppercase;
+    #body{
+        img{
+            max-width: 100%;
+            height: auto;
         }
-
-
-        a{
-            color: $text;
-            text-decoration: none;
-        }
-        
-    }
-    
-    #song:nth-of-type(2n){
-        background: darken($background, 2%)
+        display: grid;
+        grid-template-columns: repeat(2, 50%)
     }
 }

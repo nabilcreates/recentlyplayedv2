@@ -9,6 +9,7 @@ class App extends React.Component{
         this.state = {
             token: false,
             data: false,
+            album_pictures: [],
         }
     }
 
@@ -50,20 +51,43 @@ class App extends React.Component{
             this.setState({
                 data: json.items
             })
+
+            this.getAlbumPictures(json.items, this.state.token)
         })
 
     }
-    
+
+    getAlbumPictures(songs, token){
+        songs.map(s => {
+            let id = s.track.album.id
+            fetch(`https://api.spotify.com/v1/albums/${id}`,{
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(r => r.json())
+            .then(d => {
+                let images_url = d.images[0].url;
+
+                let array = this.state.album_pictures;
+                array.push(images_url)
+                
+                this.setState(p => {
+                    return{
+                        album_pictures: array
+                    }
+                })
+                
+            })
+        })
+    }
+
+
     render(){
 
         return(
-            <div>   
-
-                <Header />
-                             
-                {this.state.data != false
-                    ?
-                    this.state.data.map(d => {
+            <div id='body'>   
+                {/* {this.state.data !== false ? this.state.data.map(d => {
                         return(
                             <div id='song' >
                                 <h1>{d.track.name}</h1>
@@ -75,18 +99,13 @@ class App extends React.Component{
 
                             </div>
                         )
-                    })
+                    }) : null} */}
 
-                    : <div>
-                        <div id='container' >
-                            <h1>Please authenticate yourself</h1>
-                            <p>Login using your Spotify account:</p>
-
-                            <br></br>
-                            
-                            <a id='button' href='https://renabil.github.io/recentlyplayedv2/auth.html' >Authenticate</a>
-                        </div>
-                    </div>}
+                    {this.state.data !== false ? this.state.album_pictures.map(i => {
+                        return(
+                            <img onClick={this.handleImageClick} src={i}></img>
+                        )
+                    }) : null}
             </div>
         )
     }
