@@ -5,22 +5,22 @@ class Header extends React.Component{
     handleCopy(e){
 
         // Select the input
-        let copyText = document.getElementById('textwithlink')
+        let copyText = document.getElementById('copyLink')
 
-        // Display so that it can select the text (temp)
-        copyText.style.display = 'block'
+        if(copyText.style.display == 'none'){
 
-        // Select eh text
-        copyText.select()
+            // Change text of button
+            e.target.innerText = 'Close Link'
 
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
+            // Display
+            copyText.style.display = 'block'
+        }else{
+            // Change text of button
+            e.target.innerText = 'Share Link'
 
-        /* Alert */
-        alert("Copied! Now share the link with your friends!");
-
-        // Hide the input back
-        copyText.style.display = 'none'
+            // Display to NONE
+            copyText.style.display = 'none'
+        }
     }
     
     render(){
@@ -37,7 +37,10 @@ class Header extends React.Component{
                 <br></br>
                 <br></br>
     
-                <input style={{display: 'none'}} id='textwithlink' type='text' value={document.URL} />
+                <div id='copyLink' style={{display: 'none'}}>
+                    <p>Copy the link and share with your friends! (and press Close Link when done!)</p>
+                    <input type='text' readOnly value={document.URL} />
+                </div>
             </div>
         )
     }
