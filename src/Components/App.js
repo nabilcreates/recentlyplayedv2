@@ -7,20 +7,23 @@ class App extends React.Component{
     constructor(){
         super();
         this.state = {
-            token: null,
+            token: false,
             albums: [],
             recently_played: null,
         }
     }
 
     componentDidMount(){
-        this.setState({
-            token: extractToken(),
-        })
         
-        setTimeout(() => {
-            this.getRecentlyPlayed(this.state.token, 50)
-        }, 1);
+        if(extractToken() !== false){
+            this.setState({
+                token: extractToken(),
+            })
+
+            setTimeout(() => {
+                this.getRecentlyPlayed(this.state.token, 50)
+            }, 1);
+        }
     }
 
     getRecentlyPlayed(tk, limit){
@@ -62,15 +65,17 @@ class App extends React.Component{
 
     render(){
 
+        console.log(this.state.token)
+        
         return(
             <div>
                 <div id='body'>
-                    {this.state.token !== null ? 
+                    {this.state.token !== false ? 
                         this.state.albums !== [] ? 
                         this.state.albums.map(d=>{
                             let img = d.images[0].url;
                             let albumtype = d.album_type
-                            
+
                             // console.log(d)
                             
                             return(
@@ -85,7 +90,11 @@ class App extends React.Component{
                             )
                         })
                         : <h1>not loaded</h1>
-                    : <h1>no token</h1>}
+                    : <div>
+                        <h1>Please authenticate yourself</h1>
+                        <p>Login to your Spotify account and accept</p>
+                        <a href='https://renabil.github.io/recentlyplayedv2/auth.html' >Authorize</a>
+                    </div>}
                 </div>
             </div>
         )
