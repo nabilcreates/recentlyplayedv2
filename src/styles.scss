@@ -1,47 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700');
-
-$background: #1A1A1D;
-$text: whitesmoke;
-
 body{
+
     margin: 0;
-    padding: 0;
-    
-    background-color: $background;
-    color: $text;
-    font-family: 'Roboto', sans-serif;
-
-    font-weight: 300;
-    
-    .header{
-        text-align: center;
-        margin: 10px 0;
-    }
-    
-    h1{
-        font-weight: 700;
-    }
-
-    #container{
-        padding: 15px;
-    }
-
-    #button{
-        font-size: 0.9em;
-        background: #C3083F;
-        margin: 0 5px 0 0;
-        padding: 10px 10px;
-        border-radius: 5px;
-        color: whitesmoke;
-        text-decoration: none;
-    }
+    background: #222;
     
     #body{
-        img{
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+    
+        #images{
             max-width: 100%;
             height: auto;
         }
-        display: grid;
-        grid-template-columns: repeat(3, 33.333%)
+
     }
 }
